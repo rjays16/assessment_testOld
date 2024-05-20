@@ -22,4 +22,10 @@ class ProductController extends Controller
         // Return a response, e.g., the created product or a success message
         return response()->json($product, 201);
     }
+
+    public function getAllProducts()
+    {
+        $products = Product::all();
+        return response()->json($products, 200);
+    }
 }

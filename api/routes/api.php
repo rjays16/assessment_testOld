@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-$router->group(['prefix' => 'products'] function() use ($router) {
-    $router->post('', 'ProductController@storeProduct');
+Route::prefix('products')->group(function () {
+    Route::post('', [ProductController::class,'storeProduct']);
+    Route::get('', [ProductController::class,'getAllProducts']);
 });
-
